@@ -1,0 +1,14 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'Rudder-Moengage_Example' do
+  pod 'Rudder-Moengage', :path => '../'
+
+  target 'Rudder-Moengage_Tests' do
+    inherit! :search_paths
+
+    pod 'Specta'
+    pod 'Expecta'
+  end
+end

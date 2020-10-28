@@ -61,11 +61,11 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9198A6F26EA09046968209A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A26AAB82DE2CE16A2529C59E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9198A6F26EA09046968209A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A26AAB82DE2CE16A2529C59E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A3E3DCF14AC593384252B6F1 /* Pods-Rudder-Moengage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BBB6A34EE2CC03EB7F45F258 /* Pods-Rudder-Moengage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Tests/Pods-Rudder-Moengage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F23B9449A860EDC2806CC29C /* Rudder-Moengage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = "Rudder-Moengage.podspec"; path = "../Rudder-Moengage.podspec"; sourceTree = "<group>"; };
+		F23B9449A860EDC2806CC29C /* Rudder-Moengage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Rudder-Moengage.podspec"; path = "../Rudder-Moengage.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F50A55F4B8ADF6205A9A5D30 /* Pods-Rudder-Moengage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				BBB6A34EE2CC03EB7F45F258 /* Pods-Rudder-Moengage_Tests.debug.xcconfig */,
 				2E2C5E379FD4517278EA82E0 /* Pods-Rudder-Moengage_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -259,6 +258,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -325,10 +325,20 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example-frameworks.sh",
+				"${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngage.framework",
+				"${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MoEngageCore.framework",
+				"${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MOAnalytics.framework",
+				"${PODS_ROOT}/MoEngage-iOS-SDK/Frameworks/MOMessaging.framework",
+				"${BUILT_PRODUCTS_DIR}/Rudder/Rudder.framework",
 				"${BUILT_PRODUCTS_DIR}/Rudder-Moengage/Rudder_Moengage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoEngage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MoEngageCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOAnalytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOMessaging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rudder_Moengage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,7 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -518,6 +528,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Moengage/Rudder-Moengage-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Moengage/Rudder-Moengage-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -534,6 +545,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Moengage/Rudder-Moengage-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Moengage/Rudder-Moengage-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

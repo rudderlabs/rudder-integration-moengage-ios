@@ -7,12 +7,43 @@
 //
 
 #import "_AppDelegate.h"
+#import <Rudder/Rudder.h>
+#import "RudderMoengageFactory.h"
+#import <MoEngage/MoEngage.h>
 
 @implementation _AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    NSLog(@"Moengage start");
+//     [[MoEngage sharedInstance] initializeProdWithAppID:@"RCH4GZ21MFGQXFLY66KN12XK"  withLaunchOptions:nil];
+//    [[MoEngage sharedInstance]appStatus:INSTALL];
+//    [[MoEngage sharedInstance] setUserUniqueID:@"iOSRuchiraTest1"];
+//    [[MoEngage sharedInstance] setUserName:@"Ruchira Moitra iOS 1"];
+//     NSLog(@"Moengage stop");
     // Override point for customization after application launch.
+//     NSString *WRITE_KEY = @"1UsY362jONW4EOwaZX5MA6FX5Zt";
+//        NSString *DATA_PLANE_URL = @"https://8e50d3caecbe.ngrok.io";
+//
+//        RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
+//        [configBuilder withDataPlaneUrl:DATA_PLANE_URL];
+//        [configBuilder withLoglevel:RSLogLevelDebug];
+//        [configBuilder withFactory:[RudderMoengageFactory instance]];
+//        [RSClient getInstance:WRITE_KEY config:[configBuilder build]];
+//
+//
+//
+//        [[RSClient sharedInstance] reset];
+//        [[RSClient sharedInstance] identify: @"test_user_id_ios_2"
+//                                     traits: @{
+//                                         @"foo": @"bar",
+//                                         @"foo1": @"bar1",
+//                                         @"email": @"test_2@gmail.com"
+//                                     }
+//        ];
+//        [[RSClient sharedInstance] track:@"simple_track_event_after_reset_2"];
+        
+       
     return YES;
 }
 

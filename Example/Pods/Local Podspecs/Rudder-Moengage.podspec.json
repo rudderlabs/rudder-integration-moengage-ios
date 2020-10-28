@@ -1,0 +1,30 @@
+{
+  "name": "Rudder-Moengage",
+  "version": "0.1.0",
+  "summary": "A short description of Rudder-Moengage.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Ruchira/Rudder-Moengage",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Ruchira": "ruchira@rudderlabs.com"
+  },
+  "source": {
+    "git": "https://github.com/Ruchira/Rudder-Moengage.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "Rudder-Moengage/Classes/**/*",
+  "dependencies": {
+    "Rudder": [
+      "~> 1.0.9"
+    ],
+    "MoEngage-iOS-SDK": [
+      "~> 6.1.0"
+    ]
+  }
+}

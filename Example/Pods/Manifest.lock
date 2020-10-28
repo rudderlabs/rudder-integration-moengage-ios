@@ -1,0 +1,35 @@
+PODS:
+  - Expecta (1.0.6)
+  - MoEngage-iOS-SDK (6.1.1)
+  - Rudder (1.0.9)
+  - Rudder-Moengage (0.1.0):
+    - MoEngage-iOS-SDK (~> 6.1.0)
+    - Rudder (~> 1.0.9)
+  - Specta (1.0.7)
+
+DEPENDENCIES:
+  - Expecta
+  - Rudder-Moengage (from `../`)
+  - Specta
+
+SPEC REPOS:
+  trunk:
+    - Expecta
+    - MoEngage-iOS-SDK
+    - Rudder
+    - Specta
+
+EXTERNAL SOURCES:
+  Rudder-Moengage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  MoEngage-iOS-SDK: 47c685f40824ceae1fe0c252d1dc0e85d0f10247
+  Rudder: 90ed801a09c73017184e6fc901370be1754eb182
+  Rudder-Moengage: 2a4b2139c12d94f95f49a152bba8b7ab6c5adcbc
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+
+PODFILE CHECKSUM: b74fbf690f944a86b77d65b386a067def9a416bc
+
+COCOAPODS: 1.10.0

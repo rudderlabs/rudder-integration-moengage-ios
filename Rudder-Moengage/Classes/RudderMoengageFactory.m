@@ -12,6 +12,7 @@
 static RudderMoengageFactory *sharedInstance;
 
 + (instancetype)instance {
+    NSLog(@"Inside instance");
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];

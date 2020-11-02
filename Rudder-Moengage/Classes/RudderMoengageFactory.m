@@ -21,7 +21,7 @@ static RudderMoengageFactory *sharedInstance;
 }
 
 - (nonnull NSString *)key {
-    return @"Moengage";
+    return @"MoEngage";
 }
 
 

@@ -25,7 +25,7 @@ static RudderMoengageFactory *sharedInstance;
 
 
 - (id<RSIntegration>)initiate:(NSDictionary *)config client:(RSClient *)client rudderConfig:(nonnull RSConfig *)rudderConfig {
-    [RSLogger logDebug:@"Creating RudderIntegrationFactory"];
+    [RSLogger logDebug:@"Creating RudderIntegrationFactory: MoEngage"];
     return [[RudderMoengageIntegration alloc] initWithConfig:config withAnalytics:client withRudderConfig:rudderConfig];
 }
 

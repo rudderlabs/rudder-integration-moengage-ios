@@ -12,7 +12,6 @@
 static RudderMoengageFactory *sharedInstance;
 
 + (instancetype)instance {
-    NSLog(@"Inside instance");
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
@@ -26,7 +25,7 @@ static RudderMoengageFactory *sharedInstance;
 
 
 - (id<RSIntegration>)initiate:(NSDictionary *)config client:(RSClient *)client rudderConfig:(nonnull RSConfig *)rudderConfig {
-    [RSLogger logDebug:@"Creating RudderIntegrationFactory"];
+    [RSLogger logDebug:@"Creating RudderIntegrationFactory: MoEngage"];
     return [[RudderMoengageIntegration alloc] initWithConfig:config withAnalytics:client withRudderConfig:rudderConfig];
 }
 

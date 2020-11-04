@@ -7,38 +7,26 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'Rudder-Moengage'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of Rudder-Moengage.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/Ruchira/Rudder-Moengage'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Ruchira' => 'ruchira@rudderlabs.com' }
-  s.source           = { :git => 'https://github.com/Ruchira/Rudder-Moengage.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '9.0'
-
-  s.source_files = 'Rudder-Moengage/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Rudder-Moengage' => ['Rudder-Moengage/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'Rudder', '~> 1.0.9'
-  s.dependency 'MoEngage-iOS-SDK', '~> 6.1.0'
+    s.name             = 'Rudder-Moengage'
+    s.version          = '1.0.0'
+    s.summary          = 'Privacy and Security focused Segment-alternative. Firebase Native SDK integration support.'
+    
+    
+    s.description      = <<-DESC
+    Rudder is a platform for collecting, storing and routing customer event data to dozens of tools. Rudder is open-source, can run in your cloud environment (AWS, GCP, Azure or even your data-centre) and provides a powerful transformation framework to process your event data on the fly.
+    DESC
+    
+    
+    s.homepage         = 'https://github.com/rudderlabs/rudder-integration-moengage-ios'
+    s.license          = { :type => 'Apache', :file => 'LICENSE' }
+    s.author           = { 'RudderStack' => 'ruchira@rudderlabs.com' }
+    s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-moengage-ios.git', :tag => 'v1.0.0' }
+    # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+    
+    s.ios.deployment_target = '9.0'
+    
+    s.source_files = 'Rudder-Moengage/Classes/**/*'
+    
+    s.dependency 'Rudder'
+    s.dependency 'MoEngage-iOS-SDK', '~> 6.1.0'
 end

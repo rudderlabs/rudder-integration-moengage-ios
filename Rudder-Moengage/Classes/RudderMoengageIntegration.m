@@ -107,7 +107,17 @@
         [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastName"]];
         [traits removeObjectForKey:@"lastName"];
       }
+        
+      if ([traits objectForKey:@"firstname"]) {
+        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"firstname"] forKey:USER_ATTRIBUTE_USER_FIRST_NAME];
+        [traits removeObjectForKey:@"firstname"];
+      }
 
+      if ([traits objectForKey:@"lastname"]) {
+        [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastname"]];
+        [traits removeObjectForKey:@"lastname"];
+      }
+        
       if ([traits objectForKey:@"gender"]) {
         [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"gender"] forKey:USER_ATTRIBUTE_USER_GENDER];
         [traits removeObjectForKey:@"gender"];

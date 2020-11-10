@@ -66,6 +66,7 @@
   NSString *type = message.type;
 
   if ([type isEqualToString:@"identify"]) {
+      [self reset];
     NSDictionary *properties = message.context.traits;
     NSMutableDictionary *traits = [self filterProperties:properties];
     NSString* anonymousId = message.anonymousId;
@@ -78,8 +79,8 @@
     }
     if (traits != nil) {
       //set all predefined fields
-      if ([traits objectForKey:@"id"]) {
-        [[MoEngage sharedInstance] setUserUniqueID:[traits objectForKey:@"id"]];
+      if (userId != nil) {
+        [[MoEngage sharedInstance] setUserUniqueID:userId];
         [traits removeObjectForKey:@"id"];
       }
 

@@ -66,6 +66,7 @@
   NSString *type = message.type;
 
   if ([type isEqualToString:@"identify"]) {
+      [self reset];
     NSDictionary *properties = message.context.traits;
     NSMutableDictionary *traits = [self filterProperties:properties];
     NSString* anonymousId = message.anonymousId;
@@ -78,8 +79,8 @@
     }
     if (traits != nil) {
       //set all predefined fields
-      if ([traits objectForKey:@"id"]) {
-        [[MoEngage sharedInstance] setUserUniqueID:[traits objectForKey:@"id"]];
+      if (userId != nil) {
+        [[MoEngage sharedInstance] setUserUniqueID:userId];
         [traits removeObjectForKey:@"id"];
       }
 
@@ -107,7 +108,17 @@
         [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastName"]];
         [traits removeObjectForKey:@"lastName"];
       }
+        
+      if ([traits objectForKey:@"firstname"]) {
+        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"firstname"] forKey:USER_ATTRIBUTE_USER_FIRST_NAME];
+        [traits removeObjectForKey:@"firstname"];
+      }
 
+      if ([traits objectForKey:@"lastname"]) {
+        [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastname"]];
+        [traits removeObjectForKey:@"lastname"];
+      }
+        
       if ([traits objectForKey:@"gender"]) {
         [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"gender"] forKey:USER_ATTRIBUTE_USER_GENDER];
         [traits removeObjectForKey:@"gender"];

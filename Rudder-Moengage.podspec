@@ -14,6 +14,12 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
+    ## Ref: https://github.com/CocoaPods/CocoaPods/issues/10065
+    s.pod_target_xcconfig = {
+      'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
+    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
     s.source_files = 'Rudder-Moengage/Classes/**/*'
 
     s.dependency 'Rudder'

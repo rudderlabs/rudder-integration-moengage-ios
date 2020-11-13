@@ -8,7 +8,7 @@ Rudder is a platform for collecting, storing and routing customer event data to 
 
 Released under [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
-## Getting Started with Bugsnag Integration of iOS SDK
+## Getting Started with MoEngage Integration of iOS SDK
 1. Add [Moengage](https://app.moengage.com/) as a destination in the [Dashboard](https://app.rudderstack.com/) and define all the fields.
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "_ViewController.h"
+#import <Rudder/Rudder.h>
 
 @interface _ViewController ()
 
@@ -18,6 +19,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)flush:(id)sender {
+  [[RSClient sharedInstance] flush];
+  
 }
 
 - (void)didReceiveMemoryWarning

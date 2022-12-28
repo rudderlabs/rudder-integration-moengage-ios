@@ -11,7 +11,7 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 2. Rudder-Moenagage is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Rudder-Moengage', '~> 2.0.0'
+pod 'Rudder-Moengage', '~> 3.0.0'
 ```
 
 3. After adding the dependency followed by ```pod install```, you can add the imports to your ```AppDelegate.m``` file, as shown:

@@ -9,13 +9,11 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderMoengageFactory.h"
-#import <MoEngage/MoEngage.h>
 
 @implementation _AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [MoEngage debug:LOG_ALL];
     
     //   Override point for customization after application launch.
     NSString *WRITE_KEY = @"1jaNe0LnjkjT26FlGOcQNafNuQ5";

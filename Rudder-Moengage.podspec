@@ -16,16 +16,10 @@ Pod::Spec.new do |s|
     s.author           = { 'RudderStack' => 'ruchira@rudderlabs.com' }
     s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-moengage-ios.git', :tag => "v#{s.version}" }
 
-    s.ios.deployment_target = '9.0'
-
-    ## Ref: https://github.com/CocoaPods/CocoaPods/issues/10065
-    s.pod_target_xcconfig = {
-      'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-    }
-    s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+    s.ios.deployment_target = '10.0'
 
     s.source_files = 'Rudder-Moengage/Classes/**/*'
 
-    s.dependency 'Rudder'
-    s.dependency 'MoEngage-iOS-SDK', '~> 6.1.0'
+    s.dependency 'Rudder', '~> 1.0'
+    s.dependency 'MoEngage-iOS-SDK', '9.1.0'
 end

@@ -6,12 +6,13 @@
 //
 
 #import "RudderMoengageIntegration.h"
-#import <MoEngage/MoEngage.h>
+@import MoEngageSDK;
 #import <Rudder/Rudder.h>
 
 @implementation RudderMoengageIntegration
 
 #pragma mark - Initialization
+NSArray *identifyTraits;
 
 - (instancetype) initWithConfig:(NSDictionary *)config withAnalytics:(nonnull RSClient *)client  withRudderConfig:(nonnull RSConfig *)rudderConfig {
   self = [super init];
@@ -22,24 +23,38 @@
       NSString *apiId = [config objectForKey:@"apiId"];
       NSString *region = [config objectForKey:@"region"];
 
+      MoEngageSDKConfig* sdkConfig = [[MoEngageSDKConfig alloc] initWithAppID:apiId];
+      
+      // enable debugging
+      if (rudderConfig.logLevel != RSLogLevelNone) {
+        sdkConfig.enableLogs = true;
+      }
+
       //check if debug mode on or off
 #ifdef DEBUG
-      [[MoEngage sharedInstance] initializeDevWithAppID:apiId withLaunchOptions:nil];
+      [[MoEngage sharedInstance] initializeDefaultTestInstance:sdkConfig sdkState:MoEngageSDKStateEnabled];
 #else
-      [[MoEngage sharedInstance] initializeProdWithAppID:apiId withLaunchOptions:nil];
+      [[MoEngage sharedInstance] initializeLiveInstance:sdkConfig];
 #endif
 
-      //redirect data according to region
+      //redirect data according to region, refer MoEngage doc: https://help.moengage.com/hc/en-us/articles/360057030512-Data-Centers-in-MoEngage#01G5DQVXGT2KZMXTJPF77QPJ25
       if ([region isEqualToString:@"EU"]) {
-        [MoEngage redirectDataToRegion:MOE_REGION_EU];
+        sdkConfig.moeDataCenter = MoEngageDataCenterData_center_02;
+      } else if ([region isEqualToString:@"US"]) {
+        sdkConfig.moeDataCenter = MoEngageDataCenterData_center_01;
+      } else if ([region isEqualToString:@"IND"]){
+        sdkConfig.moeDataCenter = MoEngageDataCenterData_center_03;
       }
 
       //set anonymous id as attritbute
       NSString* anonymousId = [[RSClient sharedInstance] getAnonymousId];
       if (anonymousId != nil) {
-        [[MoEngage sharedInstance] setUserAttribute:anonymousId forKey:@"anonymousId"];
+        [[MoEngageSDKAnalytics sharedInstance] setUserAttribute:anonymousId withAttributeName:@"anonymousId"];
       }
     });
+    
+    identifyTraits = [NSArray arrayWithObjects: @"id", @"email", @"name", @"phone", @"firstName", @"lastName",
+                      @"firstname", @"lastname", @"gender", @"birthday", @"address", @"age", nil];
 
     if (@available(iOS 10.0, *)) {
       if ([UNUserNotificationCenter currentNotificationCenter].delegate == nil) {
@@ -66,83 +81,73 @@
   NSString *type = message.type;
 
   if ([type isEqualToString:@"identify"]) {
-      [self reset];
+    [self reset];
     NSDictionary *properties = message.context.traits;
     NSMutableDictionary *traits = [self filterProperties:properties];
     NSString* anonymousId = message.anonymousId;
     if (anonymousId != nil) {
-      [[MoEngage sharedInstance] setUserAttribute:anonymousId forKey:@"anonymousId"];
+      [[MoEngageSDKAnalytics sharedInstance] setUserAttribute:anonymousId withAttributeName:@"anonymousId"];
     }
     NSString *userId = message.userId;
-    if (userId != nil) {
-      [[MoEngage sharedInstance] setUserAttribute:userId forKey:USER_ATTRIBUTE_UNIQUE_ID];
-    }
     if (traits != nil) {
       //set all predefined fields
       if (userId != nil) {
-        [[MoEngage sharedInstance] setUserUniqueID:userId];
-        [traits removeObjectForKey:@"id"];
+        [[MoEngageSDKAnalytics sharedInstance] setUniqueID:userId];
       }
-
+      
       if ([traits objectForKey:@"email"]) {
-        [[MoEngage sharedInstance] setUserEmailID:[traits objectForKey:@"email"]];
-        [traits removeObjectForKey:@"email"];
+        [[MoEngageSDKAnalytics sharedInstance] setEmailID:[traits objectForKey:@"email"]];
       }
-
+      
       if ([traits objectForKey:@"name"]) {
-        [[MoEngage sharedInstance] setUserName:[traits objectForKey:@"name"]];
-        [traits removeObjectForKey:@"name"];
+        [[MoEngageSDKAnalytics sharedInstance] setName:[traits objectForKey:@"name"]];
       }
-
+      
       if ([traits objectForKey:@"phone"]) {
-        [[MoEngage sharedInstance] setUserMobileNo:[traits objectForKey:@"phone"]];
-        [traits removeObjectForKey:@"phone"];
+        [[MoEngageSDKAnalytics sharedInstance] setMobileNumber:[traits objectForKey:@"phone"]];
       }
-
+      
       if ([traits objectForKey:@"firstName"]) {
-        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"firstName"] forKey:USER_ATTRIBUTE_USER_FIRST_NAME];
-        [traits removeObjectForKey:@"firstName"];
+        [[MoEngageSDKAnalytics sharedInstance] setFirstName:[traits objectForKey:@"firstName"]];
+      } else if ([traits objectForKey:@"firstname"]) {
+        [[MoEngageSDKAnalytics sharedInstance] setFirstName:[traits objectForKey:@"firstname"]];
       }
-
+      
       if ([traits objectForKey:@"lastName"]) {
-        [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastName"]];
-        [traits removeObjectForKey:@"lastName"];
+        [[MoEngageSDKAnalytics sharedInstance] setLastName:[traits objectForKey:@"lastName"]];
+      } else if ([traits objectForKey:@"lastname"]) {
+        [[MoEngageSDKAnalytics sharedInstance] setLastName:[traits objectForKey:@"lastname"]];
       }
-        
-      if ([traits objectForKey:@"firstname"]) {
-        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"firstname"] forKey:USER_ATTRIBUTE_USER_FIRST_NAME];
-        [traits removeObjectForKey:@"firstname"];
+      
+      NSString *gender =[traits objectForKey:@"gender"];
+      if (gender) {
+        if ([gender  isEqual: @"M"] || [gender  isEqualToString: @"MALE"]) {
+          [[MoEngageSDKAnalytics sharedInstance] setGender:MoEngageUserGenderMale];
+        }
+        else if ([gender  isEqual: @"F"] || [gender  isEqualToString: @"FEMALE"]) {
+          [[MoEngageSDKAnalytics sharedInstance] setGender:MoEngageUserGenderFemale];
+        }
       }
-
-      if ([traits objectForKey:@"lastname"]) {
-        [[MoEngage sharedInstance] setUserLastName:[traits objectForKey:@"lastname"]];
-        [traits removeObjectForKey:@"lastname"];
-      }
-        
-      if ([traits objectForKey:@"gender"]) {
-        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"gender"] forKey:USER_ATTRIBUTE_USER_GENDER];
-        [traits removeObjectForKey:@"gender"];
-      }
-
+      
       if ([traits objectForKey:@"birthday"]) {
         id birthdayVal = [traits objectForKey:@"birthday"];
         if (birthdayVal != nil) {
-          [self identifyDateUserAttribute:birthdayVal withKey:USER_ATTRIBUTE_USER_BDAY];
+          [[MoEngageSDKAnalytics sharedInstance] setDateOfBirth:birthdayVal];
         }
-        [traits removeObjectForKey:@"birthday"];
       }
-
+      
       if ([traits objectForKey:@"address"]) {
-        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"address"] forKey:@"address"];
-        [traits removeObjectForKey:@"address"];
+        [[MoEngageSDKAnalytics sharedInstance] setUserAttribute:[traits objectForKey:@"address"] withAttributeName:@"address"];
       }
-
+      
       if ([traits objectForKey:@"age"]) {
-        [[MoEngage sharedInstance] setUserAttribute:[traits objectForKey:@"age"] forKey:@"age"];
-        [traits removeObjectForKey:@"age"];
+        [[MoEngageSDKAnalytics sharedInstance] setUserAttribute:[traits objectForKey:@"age"] withAttributeName:@"age"];
       }
-
+      
       for (NSString *key in [traits allKeys]) {
+        if ([identifyTraits containsObject:key]) {
+          continue;
+        }
         id value = [traits objectForKey:key];
         if (value != nil) {
           [self identifyDateUserAttribute:value withKey:key];
@@ -152,9 +157,11 @@
   } else if ([type isEqualToString:@"track"]) {
     NSString *event = message.event;
     if ([event isEqualToString:@"Application Installed"]) {
-      [[MoEngage sharedInstance]appStatus:INSTALL];
+      [[MoEngageSDKAnalytics sharedInstance] appStatus:MoEngageAppStatusInstall forAppID:nil];
+      return;
     } else if ([event isEqualToString:@"Application Updated"]) {
-      [[MoEngage sharedInstance]appStatus:UPDATE];
+      [[MoEngageSDKAnalytics sharedInstance] appStatus:MoEngageAppStatusUpdate forAppID:nil];
+      return;
     }
 
     // track event
@@ -168,27 +175,27 @@
         if ([val isKindOfClass:[NSString class]]) {
           NSDate* convertedDate = [self dateFromISOdateStr:val];
           if (convertedDate != nil) {
-            [dateAttributeDict setValue:convertedDate forKey:key];
+            dateAttributeDict[key] = convertedDate;
             [propertiesDictionary removeObjectForKey:key];
           }
         }
       }
-      MOProperties* eventProperties = [[MOProperties alloc] initWithAttributes:propertiesDictionary];
-
+      MoEngageProperties* eventProperties = [[MoEngageProperties alloc] initWithAttributes:propertiesDictionary];
+      
       for (NSString* key in dateAttributeDict.allKeys) {
         NSDate *dateVal = [dateAttributeDict valueForKey:key];
         [eventProperties addDateAttribute:dateVal withName:key];
       }
-      [[MoEngage sharedInstance] trackEvent:event withProperties:eventProperties];
+      [[MoEngageSDKAnalytics sharedInstance] trackEvent:event withProperties:eventProperties];
     } else {
-      [[MoEngage sharedInstance] trackEvent:event withProperties:nil];
+      [[MoEngageSDKAnalytics sharedInstance] trackEvent:event withProperties:nil];
     }
   } else if ([type isEqualToString:@"alias"]) {
     //to merge two profiles
     id newID = message.userId;
     if (newID != nil) {
-      if ([[MoEngage sharedInstance] respondsToSelector:@selector(setAlias:)]) {
-        [[MoEngage sharedInstance] setAlias:newID];
+      if ([[MoEngageSDKAnalytics sharedInstance] respondsToSelector:@selector(setAlias:)]) {
+        [[MoEngageSDKAnalytics sharedInstance] setAlias:newID];
       }
     }
   } else {
@@ -197,11 +204,14 @@
 }
 
 - (void)reset {
-  [[MoEngage sharedInstance] resetUser];
+  [[MoEngageSDKAnalytics sharedInstance] resetUser];
+  [RSLogger logVerbose:@"Moengage RESET API is called."];
 }
 
+// For syncing the tracked events instantaneously, use the flush method
 - (void)flush {
-  [[MoEngage sharedInstance] syncNow];
+  [[MoEngageSDKAnalytics sharedInstance] flush];
+  [RSLogger logVerbose:@"Moengage Flush API is called."];
 }
 
 #pragma mark- Application Life cycle methods
@@ -217,19 +227,15 @@
 #pragma mark- Push Notification methods
 
 -(void)registeredForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [[MoEngage sharedInstance] setPushToken:deviceToken];
+  [[MoEngageSDKMessaging sharedInstance] setPushToken:deviceToken];
 }
 
 - (void)failedToRegisterForRemoteNotificationsWithError:(NSError *)error {
-  [[MoEngage sharedInstance] didFailToRegisterForPush];
+  [[MoEngageSDKMessaging sharedInstance] didFailToRegisterForPush];
 }
 
 - (void)receivedRemoteNotification:(NSDictionary *)userInfo {
-  [[MoEngage sharedInstance] didReceieveNotificationinApplication:[UIApplication sharedApplication] withInfo:userInfo];
-}
-
-- (void)handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo {
-  [[MoEngage sharedInstance] handleActionWithIdentifier:identifier forRemoteNotification:userInfo];
+  [[MoEngageSDKMessaging sharedInstance] didReceieveNotificationInApplication:[UIApplication sharedApplication] withInfo:userInfo];
 }
 
 #pragma mark- User Notification Center delegate methods
@@ -243,7 +249,7 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
      withCompletionHandler:(nonnull void (^)(void))completionHandler API_AVAILABLE(ios(10.0)) {
-  [[MoEngage sharedInstance] userNotificationCenter:center didReceiveNotificationResponse:response];
+  [[MoEngageSDKMessaging sharedInstance] userNotificationCenter:center didReceive:response];
   completionHandler();
 }
 
@@ -252,11 +258,11 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
   if ([value isKindOfClass:[NSString class]]) {
     NSDate* convertedDate = [self dateFromISOdateStr:value];
     if (convertedDate != nil) {
-      [[MoEngage sharedInstance] setUserAttributeTimestamp:[convertedDate timeIntervalSince1970] forKey:attr_name];
+      [[MoEngageSDKAnalytics sharedInstance] setUserAttributeEpochTime:[convertedDate timeIntervalSince1970] withAttributeName:attr_name];
       return;
     }
   }
-  [[MoEngage sharedInstance] setUserAttribute:value forKey:attr_name];
+  [[MoEngageSDKAnalytics sharedInstance] setUserAttribute:value withAttributeName:attr_name];
 }
 
 - (NSMutableDictionary*) filterProperties: (NSDictionary*) properties {
@@ -265,7 +271,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     filteredProperties = [[NSMutableDictionary alloc] init];
     for (NSString *key in properties.allKeys) {
       id val = properties[key];
-      if ([val isKindOfClass:[NSString class]] || [val isKindOfClass:[NSNumber class]]) {
+      if ([val isKindOfClass:[NSString class]] || [val isKindOfClass:[NSNumber class]] || [val isKindOfClass:[NSDate class]]) {
         filteredProperties[key] = val;
       }
     }

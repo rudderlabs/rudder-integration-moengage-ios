@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		312BE32B41A24C23FD7D1120 /* Pods_Rudder_Moengage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10CAFF91A42DFDD17713A9F4 /* Pods_Rudder_Moengage_Example.framework */; };
+		43A72F8F78F70565D6D98907 /* Pods_Rudder_Moengage_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A541BB530A00FAFA5848330C /* Pods_Rudder_Moengage_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -23,7 +23,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		A50253E89011D205660213E6 /* Pods_Rudder_Moengage_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC5F3E75F00C1C74ACFBDB8 /* Pods_Rudder_Moengage_Tests.framework */; };
+		ED949BF729DEC973005DE13A /* RudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED949BF429DEC973005DE13A /* RudderConfig.plist */; };
+		ED949BF829DEC973005DE13A /* SampleRudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */; };
+		ED949BF929DEC973005DE13A /* RudderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED949BF629DEC973005DE13A /* RudderConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10CAFF91A42DFDD17713A9F4 /* Pods_Rudder_Moengage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Moengage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E2C5E379FD4517278EA82E0 /* Pods-Rudder-Moengage_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Tests.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Tests/Pods-Rudder-Moengage_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3DC5F3E75F00C1C74ACFBDB8 /* Pods_Rudder_Moengage_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Moengage_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0444A008B671C8FC28D5661D /* Pods-Rudder-Moengage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Rudder-Moengage_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rudder-Moengage_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,14 +59,33 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		6180BE4BD492F8B5982EB60A /* Pods-Rudder-Moengage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9198A6F26EA09046968209A3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A26AAB82DE2CE16A2529C59E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A3E3DCF14AC593384252B6F1 /* Pods-Rudder-Moengage_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		BBB6A34EE2CC03EB7F45F258 /* Pods-Rudder-Moengage_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Tests/Pods-Rudder-Moengage_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A541BB530A00FAFA5848330C /* Pods_Rudder_Moengage_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rudder_Moengage_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED3A082C29EACC3A001512DE /* Rudder-Moengage_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rudder-Moengage_Example.entitlements"; sourceTree = "<group>"; };
+		ED949BDE29DE90C0005DE13A /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CODE_OF_CONDUCT.md; path = ../CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		ED949BDF29DE90C0005DE13A /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CONTRIBUTING.md; path = ../CONTRIBUTING.md; sourceTree = "<group>"; };
+		ED949BE029DE90C0005DE13A /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		ED949BE129DE90C0005DE13A /* CODEOWNERS */ = {isa = PBXFileReference; lastKnownFileType = text; name = CODEOWNERS; path = ../CODEOWNERS; sourceTree = "<group>"; };
+		ED949BE229DE90C0005DE13A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		ED949BE329DE90C0005DE13A /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = package.json; path = ../package.json; sourceTree = "<group>"; };
+		ED949BE629DE90E7005DE13A /* deploy-cocoapods.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "deploy-cocoapods.yml"; sourceTree = "<group>"; };
+		ED949BE729DE90E7005DE13A /* notion-pr-sync.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "notion-pr-sync.yml"; sourceTree = "<group>"; };
+		ED949BE829DE90E7005DE13A /* check-pr-title.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "check-pr-title.yml"; sourceTree = "<group>"; };
+		ED949BE929DE90E7005DE13A /* publish-new-release.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "publish-new-release.yml"; sourceTree = "<group>"; };
+		ED949BEA29DE90E7005DE13A /* manage-github-issue-for-outdated-pods.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "manage-github-issue-for-outdated-pods.yml"; sourceTree = "<group>"; };
+		ED949BEB29DE90E7005DE13A /* slack-notify.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "slack-notify.yml"; sourceTree = "<group>"; };
+		ED949BEC29DE90E7005DE13A /* build-and-quality-checks.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "build-and-quality-checks.yml"; sourceTree = "<group>"; };
+		ED949BED29DE90E7005DE13A /* draft-new-release.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "draft-new-release.yml"; sourceTree = "<group>"; };
+		ED949BEE29DE90E7005DE13A /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pull_request_template.md; sourceTree = "<group>"; };
+		ED949BEF29DE90E7005DE13A /* dependabot.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = dependabot.yml; sourceTree = "<group>"; };
+		ED949BF029DEC967005DE13A /* Rudder-Moengage_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rudder-Moengage_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		ED949BF429DEC973005DE13A /* RudderConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RudderConfig.plist; sourceTree = "<group>"; };
+		ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleRudderConfig.plist; sourceTree = "<group>"; };
+		ED949BF629DEC973005DE13A /* RudderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RudderConfig.swift; sourceTree = "<group>"; };
 		F23B9449A860EDC2806CC29C /* Rudder-Moengage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Rudder-Moengage.podspec"; path = "../Rudder-Moengage.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F50A55F4B8ADF6205A9A5D30 /* Pods-Rudder-Moengage_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rudder-Moengage_Example.release.xcconfig"; path = "Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +96,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				312BE32B41A24C23FD7D1120 /* Pods_Rudder_Moengage_Example.framework in Frameworks */,
+				43A72F8F78F70565D6D98907 /* Pods_Rudder_Moengage_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +107,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				A50253E89011D205660213E6 /* Pods_Rudder_Moengage_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,8 +116,9 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				ED3A082C29EACC3A001512DE /* Rudder-Moengage_Example.entitlements */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for Rudder-Moengage */,
+				6003F593195388D20070C39A /* Rudder-Moengage */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -123,15 +142,15 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				10CAFF91A42DFDD17713A9F4 /* Pods_Rudder_Moengage_Example.framework */,
-				3DC5F3E75F00C1C74ACFBDB8 /* Pods_Rudder_Moengage_Tests.framework */,
+				A541BB530A00FAFA5848330C /* Pods_Rudder_Moengage_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example for Rudder-Moengage */ = {
+		6003F593195388D20070C39A /* Rudder-Moengage */ = {
 			isa = PBXGroup;
 			children = (
+				ED949BF329DEC973005DE13A /* RudderConfig */,
 				6003F59C195388D20070C39A /* _AppDelegate.h */,
 				6003F59D195388D20070C39A /* _AppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -140,8 +159,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				ED949BF029DEC967005DE13A /* Rudder-Moengage_Example-Bridging-Header.h */,
 			);
-			name = "Example for Rudder-Moengage";
 			path = "Rudder-Moengage";
 			sourceTree = "<group>";
 		};
@@ -178,9 +197,15 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				ED949BE429DE90E7005DE13A /* .github */,
+				ED949BE029DE90C0005DE13A /* CHANGELOG.md */,
+				ED949BDE29DE90C0005DE13A /* CODE_OF_CONDUCT.md */,
+				ED949BE129DE90C0005DE13A /* CODEOWNERS */,
+				ED949BDF29DE90C0005DE13A /* CONTRIBUTING.md */,
+				ED949BE229DE90C0005DE13A /* LICENSE.md */,
+				ED949BE329DE90C0005DE13A /* package.json */,
 				F23B9449A860EDC2806CC29C /* Rudder-Moengage.podspec */,
 				A26AAB82DE2CE16A2529C59E /* README.md */,
-				9198A6F26EA09046968209A3 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -188,12 +213,46 @@
 		8A9A00F8BABBD222A1997B62 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A3E3DCF14AC593384252B6F1 /* Pods-Rudder-Moengage_Example.debug.xcconfig */,
-				F50A55F4B8ADF6205A9A5D30 /* Pods-Rudder-Moengage_Example.release.xcconfig */,
-				BBB6A34EE2CC03EB7F45F258 /* Pods-Rudder-Moengage_Tests.debug.xcconfig */,
-				2E2C5E379FD4517278EA82E0 /* Pods-Rudder-Moengage_Tests.release.xcconfig */,
+				0444A008B671C8FC28D5661D /* Pods-Rudder-Moengage_Example.debug.xcconfig */,
+				6180BE4BD492F8B5982EB60A /* Pods-Rudder-Moengage_Example.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		ED949BE429DE90E7005DE13A /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				ED949BE529DE90E7005DE13A /* workflows */,
+				ED949BEE29DE90E7005DE13A /* pull_request_template.md */,
+				ED949BEF29DE90E7005DE13A /* dependabot.yml */,
+			);
+			name = .github;
+			path = ../.github;
+			sourceTree = "<group>";
+		};
+		ED949BE529DE90E7005DE13A /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				ED949BEC29DE90E7005DE13A /* build-and-quality-checks.yml */,
+				ED949BE829DE90E7005DE13A /* check-pr-title.yml */,
+				ED949BE629DE90E7005DE13A /* deploy-cocoapods.yml */,
+				ED949BED29DE90E7005DE13A /* draft-new-release.yml */,
+				ED949BEA29DE90E7005DE13A /* manage-github-issue-for-outdated-pods.yml */,
+				ED949BE729DE90E7005DE13A /* notion-pr-sync.yml */,
+				ED949BE929DE90E7005DE13A /* publish-new-release.yml */,
+				ED949BEB29DE90E7005DE13A /* slack-notify.yml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		ED949BF329DEC973005DE13A /* RudderConfig */ = {
+			isa = PBXGroup;
+			children = (
+				ED949BF429DEC973005DE13A /* RudderConfig.plist */,
+				ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */,
+				ED949BF629DEC973005DE13A /* RudderConfig.swift */,
+			);
+			path = RudderConfig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,11 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Rudder-Moengage_Example" */;
 			buildPhases = (
-				BD9BD7D2AD9DDBC4B4C80A0F /* [CP] Check Pods Manifest.lock */,
+				57CA998E6800FB3D5BE9421F /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				997F453ACA704E5BF7F9ED0E /* [CP] Embed Pods Frameworks */,
+				5CE2329122301F45D73080DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,11 +281,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Rudder-Moengage_Tests" */;
 			buildPhases = (
-				5CA7544A4D3EC1BA8BFD95CD /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				D2E81F5FC8A846E2C6A0A5E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +305,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Ruchira;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = WPX9KRKA8B;
+						LastSwiftMigration = 1420;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -279,6 +340,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				ED949BF729DEC973005DE13A /* RudderConfig.plist in Resources */,
+				ED949BF829DEC973005DE13A /* SampleRudderConfig.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -296,7 +359,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5CA7544A4D3EC1BA8BFD95CD /* [CP] Check Pods Manifest.lock */ = {
+		57CA998E6800FB3D5BE9421F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -311,14 +374,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Rudder-Moengage_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Rudder-Moengage_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		997F453ACA704E5BF7F9ED0E /* [CP] Embed Pods Frameworks */ = {
+		5CE2329122301F45D73080DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,48 +411,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Moengage_Example/Pods-Rudder-Moengage_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BD9BD7D2AD9DDBC4B4C80A0F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Rudder-Moengage_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2E81F5FC8A846E2C6A0A5E2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Rudder-Moengage_Tests/Pods-Rudder-Moengage_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Expecta/Expecta.framework",
-				"${BUILT_PRODUCTS_DIR}/Specta/Specta.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Expecta.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Specta.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rudder-Moengage_Tests/Pods-Rudder-Moengage_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -398,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* _AppDelegate.m in Sources */,
+				ED949BF929DEC973005DE13A /* RudderConfig.swift in Sources */,
 				6003F5A7195388D20070C39A /* _ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -524,17 +546,23 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3E3DCF14AC593384252B6F1 /* Pods-Rudder-Moengage_Example.debug.xcconfig */;
+			baseConfigurationReference = 0444A008B671C8FC28D5661D /* Pods-Rudder-Moengage_Example.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Rudder-Moengage_Example.entitlements";
+				DEVELOPMENT_TEAM = WPX9KRKA8B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Moengage/Rudder-Moengage-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Moengage/Rudder-Moengage-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudderstack.moengage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rudder-Moengage/Rudder-Moengage_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -542,17 +570,22 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F50A55F4B8ADF6205A9A5D30 /* Pods-Rudder-Moengage_Example.release.xcconfig */;
+			baseConfigurationReference = 6180BE4BD492F8B5982EB60A /* Pods-Rudder-Moengage_Example.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Rudder-Moengage_Example.entitlements";
+				DEVELOPMENT_TEAM = WPX9KRKA8B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rudder-Moengage/Rudder-Moengage-Prefix.pch";
 				INFOPLIST_FILE = "Rudder-Moengage/Rudder-Moengage-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.rudderstack.moengage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rudder-Moengage/Rudder-Moengage_Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -560,8 +593,8 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBB6A34EE2CC03EB7F45F258 /* Pods-Rudder-Moengage_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -585,8 +618,8 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E2C5E379FD4517278EA82E0 /* Pods-Rudder-Moengage_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

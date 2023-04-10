@@ -9,37 +9,33 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderMoengageFactory.h"
+#import "RudderMoengageIntegration.h"
+#import "Rudder_Moengage_Example-Swift.h"
+#import <UserNotifications/UserNotifications.h>
 
 @implementation _AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //   Override point for customization after application launch.
-    NSString *WRITE_KEY = @"1jaNe0LnjkjT26FlGOcQNafNuQ5";
-    NSString *DATA_PLANE_URL = @"https://8e50d3caecbe.ngrok.io";
     
-    RSConfigBuilder *configBuilder = [[RSConfigBuilder alloc] init];
-    [configBuilder withDataPlaneUrl:DATA_PLANE_URL];
-    [configBuilder withControlPlaneUrl:@"https://api.dev.rudderlabs.com"];
-    [configBuilder withLoglevel:RSLogLevelDebug];
-    [configBuilder withFactory:[RudderMoengageFactory instance]];
-    [RSClient getInstance:WRITE_KEY config:[configBuilder build]];
+    /// Copy the `SampleRudderConfig.plist` and rename it to`RudderConfig.plist` on the same directory.
+    /// Update the values as per your need.
     
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"RudderConfig" ofType:@"plist"];
+    if (path != nil) {
+        NSURL *url = [NSURL fileURLWithPath:path];
+        RudderConfig *rudderConfig = [RudderConfig createFrom:url];
+        if (rudderConfig != nil) {
+            RSConfigBuilder *builder = [[RSConfigBuilder alloc] init];
+            [builder withDataPlaneUrl:rudderConfig.PROD_DATA_PLANE_URL];
+            [builder withFactory:[RudderMoengageFactory instance]];
+            [builder withLoglevel:RSLogLevelDebug];
+            [RSClient getInstance:rudderConfig.WRITE_KEY config:[builder build]];
+        }
+    }
     
-    
-    [[RSClient sharedInstance] reset];
-    [[RSClient sharedInstance] identify: @"test_user_id_ios_2"
-                                 traits: @{
-                                     @"foo": @"bar",
-                                     @"foo1": @"bar1",
-                                     @"email": @"test_2@gmail.com"
-                                 }
-     ];
-    [[RSClient sharedInstance] track:@"simple_track_event_after_reset_2"];
-    [[RSClient sharedInstance]  alias:@"newId"];
-    
-    
+    [self registerForPushNotifications];
     return YES;
 }
 
@@ -68,6 +64,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)registerForPushNotifications {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            });
+        }
+    }];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    }
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration didFailToRegisterForRemoteNotificationsWithError:error];
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration application:application didReceiveRemoteNotification:userInfo];
+    }
 }
 
 @end

@@ -11,9 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RudderMoengageIntegration : NSObject<RSIntegration, UNUserNotificationCenterDelegate>
-
-@property (nonatomic) BOOL sendEvents;
+@interface RudderMoengageIntegration : NSObject<RSIntegration, UNUserNotificationCenterDelegate> {
+    NSArray *identifyTraits;
+}
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client withRudderConfig:(RSConfig*) rudderConfig;
 

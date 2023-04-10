@@ -2,6 +2,9 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
+moengage_sdk_version = '~> 9.5'
+rudder_sdk_version = '~> 1.12'
+
 Pod::Spec.new do |s|
     s.name             = 'Rudder-Moengage'
     s.version          = package['version']
@@ -12,14 +15,27 @@ Pod::Spec.new do |s|
     DESC
 
     s.homepage         = 'https://github.com/rudderlabs/rudder-integration-moengage-ios'
-    s.license          = { :type => 'Apache', :file => 'LICENSE' }
+    s.license          = { :type => 'Apache', :file => 'LICENSE.md' }
     s.author           = { 'RudderStack' => 'ruchira@rudderlabs.com' }
     s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-moengage-ios.git', :tag => "v#{s.version}" }
 
     s.ios.deployment_target = '10.0'
-
     s.source_files = 'Rudder-Moengage/Classes/**/*'
 
-    s.dependency 'Rudder', '~> 1.0'
-    s.dependency 'MoEngage-iOS-SDK', '9.1.0'
+    if defined?($MoengageSDKVersion)
+        Pod::UI.puts "#{s.name}: Using user specified Moengage SDK version '#{$MoengageSDKVersion}'"
+        moengage_sdk_version = $MoengageSDKVersion
+    else
+        Pod::UI.puts "#{s.name}: Using default Moengage SDK version '#{moengage_sdk_version}'"
+    end
+    
+    if defined?($RudderSDKVersion)
+        Pod::UI.puts "#{s.name}: Using user specified Rudder SDK version '#{$RudderSDKVersion}'"
+        rudder_sdk_version = $RudderSDKVersion
+    else
+        Pod::UI.puts "#{s.name}: Using default Rudder SDK version '#{rudder_sdk_version}'"
+    end
+    
+    s.dependency 'Rudder', rudder_sdk_version
+    s.dependency 'MoEngage-iOS-SDK', moengage_sdk_version
 end

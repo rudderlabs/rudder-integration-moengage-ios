@@ -6,8 +6,10 @@
 //
 
 #import "RudderMoengageIntegration.h"
-@import MoEngageSDK;
 #import <Rudder/Rudder.h>
+#import <UserNotifications/UserNotifications.h>
+
+@import MoEngageSDK;
 
 @implementation RudderMoengageIntegration
 
@@ -50,12 +52,6 @@
             }
             
             self->identifyTraits = [NSArray arrayWithObjects: @"id", @"email", @"name", @"phone", @"firstName", @"lastName", @"firstname", @"lastname", @"gender", @"birthday", @"address", @"age", nil];
-            
-            if (@available(iOS 10.0, *)) {
-                if ([UNUserNotificationCenter currentNotificationCenter].delegate == nil) {
-                    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-                }
-            }
         });
     }
     return self;
@@ -216,36 +212,22 @@
     });
 }
 
-#pragma mark- Push Notification methods
+#pragma mark- User Notification Center delegate methods
 
-- (void)registeredForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+- (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [[MoEngageSDKMessaging sharedInstance] setPushToken:deviceToken];
 }
 
-- (void)failedToRegisterForRemoteNotificationsWithError:(NSError *)error {
+- (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     [[MoEngageSDKMessaging sharedInstance] didFailToRegisterForPush];
 }
 
-- (void)receivedRemoteNotification:(NSDictionary *)userInfo {
-    [[MoEngageSDKMessaging sharedInstance] didReceieveNotificationInApplication:[UIApplication sharedApplication] withInfo:userInfo];
-}
-
-#pragma mark- User Notification Center delegate methods
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-       willPresentNotification:(UNNotification *)notification
-         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler API_AVAILABLE(ios(10.0)) {
-    completionHandler((UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert ));
-}
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(nonnull void (^)(void))completionHandler API_AVAILABLE(ios(10.0)) {
-    [[MoEngageSDKMessaging sharedInstance] userNotificationCenter:center didReceive:response];
-    completionHandler();
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [[MoEngageSDKMessaging sharedInstance] didReceieveNotificationInApplication:application withInfo:userInfo];
 }
 
 #pragma mark - Utils
+
 -(void)identifyDateUserAttribute:(id)value withKey:(NSString*)attr_name {
     if ([value isKindOfClass:[NSString class]]) {
         NSDate* convertedDate = [self dateFromISOdateStr:value];

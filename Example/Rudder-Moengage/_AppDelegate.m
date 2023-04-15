@@ -9,7 +9,9 @@
 #import "_AppDelegate.h"
 #import <Rudder/Rudder.h>
 #import "RudderMoengageFactory.h"
+#import "RudderMoengageIntegration.h"
 #import "Rudder_Moengage_Example-Swift.h"
+#import <UserNotifications/UserNotifications.h>
 
 @implementation _AppDelegate
 
@@ -32,6 +34,8 @@
             [RSClient getInstance:rudderConfig.WRITE_KEY config:[builder build]];
         }
     }
+    
+    [self registerForPushNotifications];
     return YES;
 }
 
@@ -60,6 +64,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)registerForPushNotifications {
+    [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:UNAuthorizationOptionAlert completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            });
+        }
+    }];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    }
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration didFailToRegisterForRemoteNotificationsWithError:error];
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    if ([RudderMoengageFactory instance].integration) {
+        [[RudderMoengageFactory instance].integration application:application didReceiveRemoteNotification:userInfo];
+    }
 }
 
 @end

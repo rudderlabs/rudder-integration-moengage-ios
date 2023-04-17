@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.1.0 (2023-04-17)
+
+
+### Features
+
+* upgraded MoEngage(9.5.1) and Rudder(1.12.0) SDK ([5856031](https://github.com/rudderlabs/rudder-integration-moengage-ios/commit/58560310da5094f85ca9ebfc464e1fafe877d9d9))
+
 ## 2.0.0 (2022-12-28)
 
 

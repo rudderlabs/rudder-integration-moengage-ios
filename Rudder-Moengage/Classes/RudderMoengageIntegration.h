@@ -7,15 +7,18 @@
 
 #import <Foundation/Foundation.h>
 #import <Rudder/Rudder.h>
-#import <UserNotifications/UserNotifications.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RudderMoengageIntegration : NSObject<RSIntegration, UNUserNotificationCenterDelegate>
-
-@property (nonatomic) BOOL sendEvents;
+@interface RudderMoengageIntegration : NSObject<RSIntegration> {
+    NSArray *identifyTraits;
+}
 
 - (instancetype)initWithConfig:(NSDictionary *)config withAnalytics:(RSClient *)client withRudderConfig:(RSConfig*) rudderConfig;
+
+- (void)didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
+- (void)didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
 
 @end
 

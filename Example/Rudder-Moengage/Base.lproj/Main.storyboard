@@ -1,40 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2HW-TK-SZl">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="wQg-tq-qST">
+        <scene sceneID="VuO-Sn-KcB">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="_ViewController" sceneMemberID="viewController">
+                <viewController id="2HW-TK-SZl" customClass="_ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
+                        <viewControllerLayoutGuide type="top" id="mSy-ov-YV3"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Y4-xn-vKG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                    <view key="view" contentMode="scaleToFill" id="sqg-at-QAJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pq-Y5-5sO">
-                                <rect key="frame" x="120" y="141" width="65" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Flush"/>
-                                <connections>
-                                    <action selector="flush:" destination="whP-gf-Uak" eventType="touchUpInside" id="PDq-jy-unv"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnt-6j-SsU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkr-aO-gi2">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zQM-nx-Cd3">
+                                                <rect key="frame" x="10" y="0.0" width="355" height="380"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6T7-nL-wzO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="Hji-4d-va4"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Identify without traits">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onButtonTap:" destination="2HW-TK-SZl" eventType="touchUpInside" id="lpa-wF-siu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg9-JJ-ASo">
+                                                        <rect key="frame" x="0.0" y="80" width="355" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Identify with traits">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onButtonTap:" destination="2HW-TK-SZl" eventType="touchUpInside" id="AR9-j7-YR2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccz-Rs-O8N">
+                                                        <rect key="frame" x="0.0" y="160" width="355" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Custom event name without properties">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onButtonTap:" destination="2HW-TK-SZl" eventType="touchUpInside" id="6pG-KL-Lae"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axF-d2-zM1">
+                                                        <rect key="frame" x="0.0" y="240" width="355" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Custom event name with properties">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onButtonTap:" destination="2HW-TK-SZl" eventType="touchUpInside" id="YDV-Qs-0Ic"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TG0-pS-rt5">
+                                                        <rect key="frame" x="0.0" y="320" width="355" height="60"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Alias">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="onButtonTap:" destination="2HW-TK-SZl" eventType="touchUpInside" id="aYv-5g-ZIN"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="zQM-nx-Cd3" secondAttribute="trailing" constant="10" id="9bu-sQ-GCd"/>
+                                            <constraint firstAttribute="bottom" secondItem="zQM-nx-Cd3" secondAttribute="bottom" id="O59-zQ-3ll"/>
+                                            <constraint firstItem="zQM-nx-Cd3" firstAttribute="leading" secondItem="kkr-aO-gi2" secondAttribute="leading" constant="10" id="hvO-7c-ACh"/>
+                                            <constraint firstItem="zQM-nx-Cd3" firstAttribute="top" secondItem="kkr-aO-gi2" secondAttribute="top" id="z9w-kY-bbK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="kkr-aO-gi2" firstAttribute="leading" secondItem="fnt-6j-SsU" secondAttribute="leading" id="1Ry-yR-pIM"/>
+                                    <constraint firstAttribute="trailing" secondItem="kkr-aO-gi2" secondAttribute="trailing" id="C1P-LD-GQm"/>
+                                    <constraint firstItem="kkr-aO-gi2" firstAttribute="top" secondItem="fnt-6j-SsU" secondAttribute="top" id="kEb-A9-dYB"/>
+                                    <constraint firstAttribute="bottom" secondItem="kkr-aO-gi2" secondAttribute="bottom" id="tcp-Gq-64h"/>
+                                    <constraint firstItem="kkr-aO-gi2" firstAttribute="width" secondItem="fnt-6j-SsU" secondAttribute="width" id="wqf-Cv-85Z"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fnt-6j-SsU" firstAttribute="leading" secondItem="sqg-at-QAJ" secondAttribute="leading" id="2Zj-YZ-HYU"/>
+                            <constraint firstItem="fnt-6j-SsU" firstAttribute="top" secondItem="mSy-ov-YV3" secondAttribute="bottom" id="fSj-SY-brm"/>
+                            <constraint firstItem="fnt-6j-SsU" firstAttribute="width" secondItem="sqg-at-QAJ" secondAttribute="width" id="kHg-rb-qhA"/>
+                            <constraint firstItem="2Y4-xn-vKG" firstAttribute="top" secondItem="fnt-6j-SsU" secondAttribute="bottom" id="qCC-ST-FVT"/>
+                            <constraint firstAttribute="trailing" secondItem="fnt-6j-SsU" secondAttribute="trailing" id="zIz-Er-oxl"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48N-OO-dep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="215" y="365"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

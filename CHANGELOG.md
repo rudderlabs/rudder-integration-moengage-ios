@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.1.1 (2023-07-11)
+
+
+### Bug Fixes
+
+* remove explicit reset call in identify event ([7351e8b](https://github.com/rudderlabs/rudder-integration-moengage-ios/commit/7351e8b44556ba83492faba5042523a6df70ee6d))
+
 ## 2.1.0 (2023-04-17)
 
 

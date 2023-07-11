@@ -71,7 +71,6 @@
     NSString *type = message.type;
     
     if ([type isEqualToString:@"identify"]) {
-        [self reset];
         NSDictionary *properties = message.context.traits;
         NSMutableDictionary *traits = [self filterProperties:properties];
         NSString* anonymousId = message.anonymousId;

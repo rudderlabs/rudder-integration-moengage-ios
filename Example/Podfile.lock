@@ -1,7 +1,7 @@
 PODS:
-  - MoEngage-iOS-SDK (9.5.1)
-  - Rudder (1.13.0)
-  - Rudder-Moengage (2.0.0):
+  - MoEngage-iOS-SDK (9.7.0)
+  - Rudder (1.16.0)
+  - Rudder-Moengage (2.1.0):
     - MoEngage-iOS-SDK (~> 9.5)
     - Rudder (~> 1.12)
 
@@ -18,10 +18,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MoEngage-iOS-SDK: 26409a1781d3deeb55a5844c280130aef96bd699
-  Rudder: 840bf4dfd9816ce6a82cb8870f1a2d4a44ed2652
-  Rudder-Moengage: 7a4633b2efa1d68cb5f4eb02621c05253a956dc7
+  MoEngage-iOS-SDK: fe5e6039e6381017b756d8cc72b6d9a11112abc1
+  Rudder: 718bc5bf0de0e4d83850dedd792f08e5e2065a0a
+  Rudder-Moengage: 00154e2ef5b17878d46fb9417a706efc0f3d8acd
 
 PODFILE CHECKSUM: ca14697d03a327ae5bc6f60dfe7cd75fb7d5a297
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.11.3

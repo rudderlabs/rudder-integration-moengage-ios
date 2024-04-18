@@ -23,7 +23,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		ED949BF729DEC973005DE13A /* RudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED949BF429DEC973005DE13A /* RudderConfig.plist */; };
 		ED949BF829DEC973005DE13A /* SampleRudderConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */; };
 		ED949BF929DEC973005DE13A /* RudderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED949BF629DEC973005DE13A /* RudderConfig.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +81,6 @@
 		ED949BEE29DE90E7005DE13A /* pull_request_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = pull_request_template.md; sourceTree = "<group>"; };
 		ED949BEF29DE90E7005DE13A /* dependabot.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = dependabot.yml; sourceTree = "<group>"; };
 		ED949BF029DEC967005DE13A /* Rudder-Moengage_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rudder-Moengage_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		ED949BF429DEC973005DE13A /* RudderConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RudderConfig.plist; sourceTree = "<group>"; };
 		ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleRudderConfig.plist; sourceTree = "<group>"; };
 		ED949BF629DEC973005DE13A /* RudderConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RudderConfig.swift; sourceTree = "<group>"; };
 		F23B9449A860EDC2806CC29C /* Rudder-Moengage.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "Rudder-Moengage.podspec"; path = "../Rudder-Moengage.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -248,7 +246,6 @@
 		ED949BF329DEC973005DE13A /* RudderConfig */ = {
 			isa = PBXGroup;
 			children = (
-				ED949BF429DEC973005DE13A /* RudderConfig.plist */,
 				ED949BF529DEC973005DE13A /* SampleRudderConfig.plist */,
 				ED949BF629DEC973005DE13A /* RudderConfig.swift */,
 			);
@@ -340,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				ED949BF729DEC973005DE13A /* RudderConfig.plist in Resources */,
 				ED949BF829DEC973005DE13A /* SampleRudderConfig.plist in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,

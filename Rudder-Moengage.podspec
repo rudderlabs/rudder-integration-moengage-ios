@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-moengage_sdk_version = '~> 9.5'
+moengage_sdk_version = '9.17.1'
 rudder_sdk_version = '~> 1.12'
 
 Pod::Spec.new do |s|

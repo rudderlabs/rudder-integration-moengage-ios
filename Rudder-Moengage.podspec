@@ -2,7 +2,7 @@ require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
-moengage_sdk_version = '~> 9.5'
+moengage_sdk_version = '9.17.1'
 rudder_sdk_version = '~> 1.12'
 
 Pod::Spec.new do |s|
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.author           = { 'RudderStack' => 'ruchira@rudderlabs.com' }
     s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-moengage-ios.git', :tag => "v#{s.version}" }
 
-    s.ios.deployment_target = '10.0'
+    s.ios.deployment_target = '11.0'
     s.source_files = 'Rudder-Moengage/Classes/**/*'
 
     if defined?($MoengageSDKVersion)

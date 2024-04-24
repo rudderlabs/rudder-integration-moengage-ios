@@ -21,12 +21,26 @@
         [RSLogger logDebug:@"Initializing Moengage SDK"];
         NSString *apiId = [config objectForKey:@"apiId"];
         NSString *region = [config objectForKey:@"region"];
+        
+        MoEngageDataCenter moEngageDataCenter;
+        //redirect data according to region, refer MoEngage doc: https://help.moengage.com/hc/en-us/articles/360057030512-Data-Centers-in-MoEngage#01G5DQVXGT2KZMXTJPF77QPJ25
+        if ([region isEqualToString:@"EU"]) {
+            moEngageDataCenter = MoEngageDataCenterData_center_02;
+        } else if ([region isEqualToString:@"US"]) {
+            moEngageDataCenter = MoEngageDataCenterData_center_01;
+        } else if ([region isEqualToString:@"IND"]){
+            moEngageDataCenter = MoEngageDataCenterData_center_03;
+        } else {
+            [RSLogger logError:[[NSString alloc] initWithFormat:@"MoEngage SDK initialization terminated due to an invalid region."]];
+            return self;
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
-            MoEngageSDKConfig* sdkConfig = [[MoEngageSDKConfig alloc] initWithAppID:apiId];
+            MoEngageSDKConfig* sdkConfig = [[MoEngageSDKConfig alloc] initWithAppId:apiId dataCenter: moEngageDataCenter];
             
             // enable debugging
             if (rudderConfig.logLevel != RSLogLevelNone) {
-                sdkConfig.enableLogs = true;
+                sdkConfig.consoleLogConfig = [self getMoEngageLogLevel:rudderConfig.logLevel];
             }
             
             //check if debug mode on or off
@@ -35,15 +49,6 @@
 #else
             [[MoEngage sharedInstance] initializeLiveInstance:sdkConfig];
 #endif
-            
-            //redirect data according to region, refer MoEngage doc: https://help.moengage.com/hc/en-us/articles/360057030512-Data-Centers-in-MoEngage#01G5DQVXGT2KZMXTJPF77QPJ25
-            if ([region isEqualToString:@"EU"]) {
-                sdkConfig.moeDataCenter = MoEngageDataCenterData_center_02;
-            } else if ([region isEqualToString:@"US"]) {
-                sdkConfig.moeDataCenter = MoEngageDataCenterData_center_01;
-            } else if ([region isEqualToString:@"IND"]){
-                sdkConfig.moeDataCenter = MoEngageDataCenterData_center_03;
-            }
             
             //set anonymous id as attritbute
             NSString* anonymousId = [[RSClient sharedInstance] getAnonymousId];
@@ -55,6 +60,20 @@
         });
     }
     return self;
+}
+
+- (MoEngageConsoleLogConfig *) getMoEngageLogLevel:(int) loglevel {
+    if (loglevel == RSLogLevelError) {
+        return [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeError];
+    } else if (loglevel == RSLogLevelWarning) {
+        return [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeWarning];
+    } else if (loglevel == RSLogLevelInfo) {
+        return [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeInfo];
+    } else if (loglevel == RSLogLevelDebug) {
+        return [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeDebug];
+    } else {
+        return [[MoEngageConsoleLogConfig alloc] initWithIsLoggingEnabled:true loglevel:MoEngageLoggerTypeVerbose];
+    }
 }
 
 - (void) dump:(RSMessage *)message {

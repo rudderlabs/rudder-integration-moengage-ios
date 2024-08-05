@@ -28,25 +28,25 @@
 - (IBAction)onButtonTap:(UIButton *)sender {
     switch (sender.tag) {
         case 0: {
-            [[RSClient sharedInstance] identify:@"test_userid_ios"];
+            [[RSClient sharedInstance] identify:@"test_user_id"];
             break;
         case 1: {
             NSDate *birthday = [[NSDate alloc] init];
-            [[RSClient sharedInstance] identify:@"test_userid_ios" traits: @{
+            [[RSClient sharedInstance] identify:@"test_user_id" traits: @{
                 @"birthday": birthday,
                 @"address": @{
                     @"city": @"Kolkata",
                     @"country": @"India"
                 },
-                @"firstname": @"First Name",
-                @"lastname": @"Last Name",
+                @"firstname": @"First",
+                @"lastname": @"Last",
                 @"name": @"Rudder-Bugsnag iOS",
                 @"gender": @"Male",
                 @"phone": @"0123456789",
                 @"email": @"test@gmail.com",
                 @"key-1": @"value-1",
                 @"key-2": @1234
-            }];
+            }]; 
         }
             break;
         case 2:
@@ -57,9 +57,9 @@
                 @"key_1" : @"value_1",
                 @"key_2" : @"value_2"
             }];
-            break;
+                break;
         case 4:
-            [[RSClient sharedInstance] alias:@"test_userid_ios_2"];
+            [[RSClient sharedInstance] alias:@"test_user_id"];
             break;
         }
     }

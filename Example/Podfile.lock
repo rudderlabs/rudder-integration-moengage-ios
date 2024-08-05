@@ -1,8 +1,33 @@
 PODS:
-  - MoEngage-iOS-SDK (9.17.1)
+  - MoEngage-iOS-SDK (9.18.0):
+    - MoEngage-iOS-SDK/Core (= 9.18.0)
+  - MoEngage-iOS-SDK/Core (9.18.0):
+    - MoEngageAnalytics (= 4.18.0)
+    - MoEngageCore (= 9.18.0)
+    - MoEngageMessaging (= 4.18.0)
+    - MoEngageObjCUtils (= 3.18.0)
+    - MoEngageSDK (= 9.18.0)
+    - MoEngageSecurity (= 1.10.0)
+  - MoEngageAnalytics (4.18.0):
+    - MoEngageCore
+    - MoEngageObjCUtils
+  - MoEngageCore (9.18.0):
+    - MoEngageSecurity
+  - MoEngageMessaging (4.18.0):
+    - MoEngageAnalytics
+    - MoEngageCore
+    - MoEngageObjCUtils
+  - MoEngageObjCUtils (3.18.0):
+    - MoEngageCore
+  - MoEngageSDK (9.18.0):
+    - MoEngageAnalytics
+    - MoEngageCore
+    - MoEngageMessaging
+    - MoEngageObjCUtils
+  - MoEngageSecurity (1.10.0)
   - Rudder (1.17.0)
-  - Rudder-Moengage (2.1.1):
-    - MoEngage-iOS-SDK (= 9.17.1)
+  - Rudder-Moengage (2.2.0):
+    - MoEngage-iOS-SDK (= 9.18.0)
     - Rudder (~> 1.12)
 
 DEPENDENCIES:
@@ -11,6 +36,12 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - MoEngage-iOS-SDK
+    - MoEngageAnalytics
+    - MoEngageCore
+    - MoEngageMessaging
+    - MoEngageObjCUtils
+    - MoEngageSDK
+    - MoEngageSecurity
     - Rudder
 
 EXTERNAL SOURCES:
@@ -18,10 +49,16 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MoEngage-iOS-SDK: 08d54cc0bff2a56ba89db644dd213a6c021d712b
+  MoEngage-iOS-SDK: f46670869777750ebfa07431c51a4e433a11b578
+  MoEngageAnalytics: 23402db29e1aa78f13849663b296193015ddc941
+  MoEngageCore: 00f1e8227baf57a71aec17e13028025f6f619b06
+  MoEngageMessaging: 99adeace55f36510360cfb19536a8c89b2d0988c
+  MoEngageObjCUtils: 19568f63b653daeb28ba18bafff4b8f176907fee
+  MoEngageSDK: 1ea19a0de8ff4c7237c041a27cdced4f400f949f
+  MoEngageSecurity: 195e23d58a49c08e1ba83de4691f1add42dda00b
   Rudder: 3f4ab09638452282a22b96a388b54132dcd3fca8
-  Rudder-Moengage: e168df65ff53333c30a0d4de2f167a96569af229
+  Rudder-Moengage: 542454dad6e52c038873934f79baa2c8bf03179e
 
 PODFILE CHECKSUM: 29c179da970177b0db2cf1ad21737f03fbbb6cad
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

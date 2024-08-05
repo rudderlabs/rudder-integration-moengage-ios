@@ -46,7 +46,7 @@
                 @"email": @"test@gmail.com",
                 @"key-1": @"value-1",
                 @"key-2": @1234
-            }]; //New User 2  test_userid_ios
+            }]; 
         }
             break;
         case 2:

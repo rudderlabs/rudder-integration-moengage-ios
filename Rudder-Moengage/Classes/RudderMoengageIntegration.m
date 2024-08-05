@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         [RSLogger logDebug:@"Initializing Moengage SDK"];
-        NSString *apiId =[config objectForKey:@"apiId"]; 
+        NSString *apiId = [config objectForKey:@"apiId"];
         NSString *region = [config objectForKey:@"region"];
         
         MoEngageDataCenter moEngageDataCenter;
@@ -38,11 +38,11 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             MoEngageSDKConfig* sdkConfig = [[MoEngageSDKConfig alloc] initWithAppId:apiId dataCenter: moEngageDataCenter];
             
-//            // enable debugging
+            // enable debugging
             if (rudderConfig.logLevel != RSLogLevelNone) {
                 sdkConfig.consoleLogConfig = [self getMoEngageLogLevel:rudderConfig.logLevel];
             }
-          
+           
             //check if debug mode on or off
 #ifdef DEBUG
             [[MoEngage sharedInstance] initializeDefaultTestInstance:sdkConfig sdkState:MoEngageSDKStateEnabled];

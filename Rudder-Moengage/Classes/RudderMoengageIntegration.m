@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         [RSLogger logDebug:@"Initializing Moengage SDK"];
-        NSString *apiId = [config objectForKey:@"apiId"];
+        NSString *apiId = [config objectForKey:@"apiId"]; 
         NSString *region = [config objectForKey:@"region"];
         
         MoEngageDataCenter moEngageDataCenter;

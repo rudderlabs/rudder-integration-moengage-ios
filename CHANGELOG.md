@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.3.0 (2024-08-06)
+
+
+### Features
+
+* upgrade moengage SDK version to latest v9.18.0 ([#25](https://github.com/rudderlabs/rudder-integration-moengage-ios/issues/25)) ([f1a7d96](https://github.com/rudderlabs/rudder-integration-moengage-ios/commit/f1a7d963439e8c426604f1c355fb52a584926773))
+
 ## 2.2.0 (2024-04-24)
 
 

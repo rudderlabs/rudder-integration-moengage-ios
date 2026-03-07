@@ -2,6 +2,9 @@ name: Draft new release
 
 on: workflow_dispatch
 
+permissions:
+  contents: read
+
 jobs:
   draft-new-release:
     permissions:

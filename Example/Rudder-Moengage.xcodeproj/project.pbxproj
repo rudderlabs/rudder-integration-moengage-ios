@@ -71,7 +71,6 @@
 		ED949BE229DE90C0005DE13A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		ED949BE329DE90C0005DE13A /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = package.json; path = ../package.json; sourceTree = "<group>"; };
 		ED949BE629DE90E7005DE13A /* deploy-cocoapods.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "deploy-cocoapods.yml"; sourceTree = "<group>"; };
-		ED949BE729DE90E7005DE13A /* notion-pr-sync.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "notion-pr-sync.yml"; sourceTree = "<group>"; };
 		ED949BE829DE90E7005DE13A /* check-pr-title.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "check-pr-title.yml"; sourceTree = "<group>"; };
 		ED949BE929DE90E7005DE13A /* publish-new-release.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "publish-new-release.yml"; sourceTree = "<group>"; };
 		ED949BEA29DE90E7005DE13A /* manage-github-issue-for-outdated-pods.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "manage-github-issue-for-outdated-pods.yml"; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 				ED949BE629DE90E7005DE13A /* deploy-cocoapods.yml */,
 				ED949BED29DE90E7005DE13A /* draft-new-release.yml */,
 				ED949BEA29DE90E7005DE13A /* manage-github-issue-for-outdated-pods.yml */,
-				ED949BE729DE90E7005DE13A /* notion-pr-sync.yml */,
 				ED949BE929DE90E7005DE13A /* publish-new-release.yml */,
 				ED949BEB29DE90E7005DE13A /* slack-notify.yml */,
 			);

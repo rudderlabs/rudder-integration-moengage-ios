@@ -26,7 +26,7 @@ PODS:
     - MoEngageObjCUtils
   - MoEngageSecurity (1.10.0)
   - Rudder (1.17.0)
-  - Rudder-Moengage (2.2.0):
+  - Rudder-Moengage (2.3.0):
     - MoEngage-iOS-SDK (= 9.18.0)
     - Rudder (~> 1.12)
 
@@ -57,8 +57,8 @@ SPEC CHECKSUMS:
   MoEngageSDK: 1ea19a0de8ff4c7237c041a27cdced4f400f949f
   MoEngageSecurity: 195e23d58a49c08e1ba83de4691f1add42dda00b
   Rudder: 3f4ab09638452282a22b96a388b54132dcd3fca8
-  Rudder-Moengage: 542454dad6e52c038873934f79baa2c8bf03179e
+  Rudder-Moengage: ba507638deda7abe79ead4b606385192662481fd
 
-PODFILE CHECKSUM: 29c179da970177b0db2cf1ad21737f03fbbb6cad
+PODFILE CHECKSUM: a13ef4c17eed9d05d041581a8232d01ac7e20688
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.17.0

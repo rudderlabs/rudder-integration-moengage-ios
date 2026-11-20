@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/rudderlabs/rudder-integration-moengage-ios/compare/v2.4.0...v2.5.0) (2026-11-20)
+
+
+### Features
+
+* add swift package manager support ([#55](https://github.com/rudderlabs/rudder-integration-moengage-ios/issues/55)) ([4e319b3](https://github.com/rudderlabs/rudder-integration-moengage-ios/commit/4e319b336357f842fb79f9defd2082e7163d8806))
+
 ## [2.4.0](https://github.com/rudderlabs/rudder-integration-moengage-ios/compare/v2.3.0...v2.4.0) (2026-11-18)
 
 

@@ -6,7 +6,11 @@
 //
 
 #import "RudderMoengageIntegration.h"
+#if defined(__has_include) && __has_include(<Rudder/Rudder.h>)
 #import <Rudder/Rudder.h>
+#else
+#import "Rudder.h"
+#endif
 #import <UserNotifications/UserNotifications.h>
 
 @import MoEngageSDK;
